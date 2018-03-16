@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    style="@style/main_linear_layouts_style">
+
+    <!--Horizontal L-layout contains back arrow and edit text to write keywords  -->
+    <LinearLayout
+        style="@style/horizontal_linear_layouts_style">
+
+        <!-- go back icon -->
+        <ImageView
+            android:id="@+id/id_back_arrow_icon"
+            style="@style/icon_play_current_song_style"
+            android:src="@drawable/ic_arrow_back_black_48dp"/>
+
+        <!-- EditText to search for songs  -->
+        <EditText
+            android:id="@+id/id_search_edit_text"
+            style="@style/edit_text_style"
+            android:hint="@string/search_hint_text"/>
+
+        <!-- search icon linked to search activity-->
+        <ImageView
+            android:id="@+id/id_search_icon"
+            style="@style/icon_play_current_song_style"
+            android:src="@drawable/ic_search_black_48dp" />
+
+    </LinearLayout>
+
+    <!--list view to show search result -->
+   <ListView
+       android:id="@+id/id_result_search_list_view"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/zero_value"
+       android:layout_weight="10">
+
+   </ListView>
+
+
+</LinearLayout>

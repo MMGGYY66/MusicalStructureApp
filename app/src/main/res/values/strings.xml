@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Musical Structure App</string>
+
+    <!-- default string displayed on edit text view on search layout-->
+    <string name="search_hint_text">Search songs name</string>
+
+    <!-- tag for favourite icon to switch on/off by onclick method  -->
+    <string name="tag1_favourite_icon">off</string> <!-- default  not favorite -->
+    <string name="tag2_favourite_icon">on</string>
+    <!-- tag for volume icon to switch on/off by onclick method  -->
+    <string name="tag1_volume_icon">on</string>     <!-- default sound on -->
+    <string name="tag2_volume_icon">off</string>
+
+    <!-- tag for category list view icon to differ between folders cat or songs cat -->
+    <string name="category_list_view_folders">folders</string>     <!-- default sound on -->
+    <string name="category_list_view_songs">songs</string>
+
+    <!-- default string for song name displayed on text view -->
+    <string name="default_song_name"> last played song </string>
+    <!-- default string for category name displayed on text view on categories layout-->
+    <string name="default_category_name">Categories</string>
+    <!-- default string for category name displayed on text view on categories layout-->
+    <string name="default_now_playing_list_name">Now Playing list </string>
+</resources>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/main_linear_layouts_style">
+
+
+    <!-- 1st row contains back , list and search buttons -->
+    <LinearLayout
+        style="@style/horizontal_linear_layouts_style">
+
+        <!-- arrow back linked to main activity -->
+        <ImageView
+            android:id="@+id/id_back_arrow_icon"
+            style="@style/icon_style"
+            android:src="@drawable/ic_arrow_back_black_48dp" />
+
+        <!--  view to give more horizontal space between icons   -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:paddingLeft="@dimen/ten_value"/>
+
+        <!-- now playing list -->
+        <ImageView
+            android:id="@+id/id_now_playing_list_icon"
+            style="@style/icon_style"
+            android:src="@drawable/ic_queue_music_black_48dp" />
+
+        <!-- search icon linked to search activity-->
+        <ImageView
+            android:id="@+id/id_search_icon"
+            style="@style/icon_style"
+            android:src="@drawable/ic_search_black_48dp" />
+
+        <!-- more options list-->
+        <ImageView
+            android:id="@+id/id_options_icon"
+            style="@style/icon_style"
+            android:src="@drawable/ic_more_vert_black_48dp" />
+        
+
+    </LinearLayout>
+
+    <!-- 2nd row contains favourited  button ,song name text view -->
+    <LinearLayout
+        style="@style/horizontal_linear_layouts_style">
+
+        <!-- favourite icon (on/off) -->
+        <ImageView
+            android:id="@+id/id_favourite_icon"
+            style="@style/icon_style"
+            android:tag="@string/tag1_favourite_icon"
+            android:src="@drawable/ic_favorite_border_black_48dp"/>
+
+        <!-- Text view display song name  -->
+        <TextView
+            android:id="@+id/id_song_name_text_view"
+            android:tag="@string/tag1_volume_icon"
+            android:text="@string/default_song_name"
+            style="@style/text_style"
+            android:layout_weight="1.5"/>
+
+    </LinearLayout>
+
+    <!-- album/song image -->
+    <ImageView
+        android:id="@+id/id_image_song"
+        style="@style/album_image_view_style"
+        android:layout_weight="10"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:src="@drawable/luke_chesser_50_unsplash"/>
+
+    <!-- 3rd row contains shuffle , seekbar and repeat buttons -->
+    <LinearLayout
+        style="@style/horizontal_linear_layouts_style">
+
+        <!-- shuffle songs (on/off) -->
+        <ImageView
+            android:id="@+id/id_shuffle_icon"
+            style="@style/icon_style"
+            android:src="@drawable/ic_shuffle_black_48dp"/>
+
+        <!-- to show progress -->
+        <SeekBar
+            android:id="@+id/id_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_gravity="center_vertical"
+            />
+        <!-- repeat song (on/off) -->
+        <ImageView
+            android:id="@+id/id_repeat_icon"
+            style="@style/icon_style"
+            android:src="@drawable/ic_repeat_black_48dp"/>
+
+    </LinearLayout>
+
+    <!-- 4th row contains volume , skip previous , play song , skip next and list buttons -->
+    <LinearLayout
+        android:layout_weight="1.5"
+        style="@style/horizontal_linear_layouts_style">
+
+        <!-- icon volume(on/off) -->
+        <ImageView
+            android:id="@+id/id_volume_icon"
+            style="@style/icon_play_current_song_style"
+            android:tag="@string/tag1_volume_icon"
+            android:src="@drawable/ic_volume_up_black_48dp"/>
+
+        <!-- skip and go back to previous song -->
+        <ImageView
+            android:id="@+id/id_skip_previous_icon"
+            style="@style/icon_play_current_song_style"
+            android:src="@drawable/ic_skip_previous_black_48dp"/>
+
+        <!-- play/pause button (on/off) -->
+        <ImageView
+            android:id="@+id/id_play_song_icon"
+            style="@style/icon_play_current_song_style"
+            android:src="@drawable/ic_play_arrow_black_48dp"/>
+
+        <!-- skip and go forward to next song -->
+        <ImageView
+            android:id="@+id/id_skip_next_icon"
+            style="@style/icon_play_current_song_style"
+            android:src="@drawable/ic_skip_next_black_48dp"/>
+
+        <!-- go to songs list -->
+        <ImageView
+            android:id="@+id/id_categories_list_icon"
+            style="@style/icon_play_current_song_style"
+            android:src="@drawable/ic_view_headline_black_48dp"
+            android:layout_marginRight="@dimen/zero_value"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

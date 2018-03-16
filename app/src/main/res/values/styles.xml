@@ -1,0 +1,102 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!-- song names , category name -->
+    <style name="text_style">
+        <item name="android:layout_width">@dimen/zero_value</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">8</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_size_text_view</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_view_color</item>
+    </style>
+
+    <!-- list views text style -->
+    <style name="text_list_view_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_size_text_view</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_view_color</item>
+    </style>
+    <!-- for images in list view -->
+    <style name="image_view_style">
+        <item name="android:layout_width">@dimen/zero_value</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- for edit text used in search bars -->
+    <style name="edit_text_style">
+        <item name="android:layout_width">@dimen/zero_value</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">8</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text_size_edit_text</item>
+        <item name="android:textColor">@color/edit_text_color</item>
+    </style>
+
+
+    <!-- for horizontal layouts contains icons in each activity-->
+    <style name="horizontal_linear_layouts_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/zero_value</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">@dimen/horizontal_linear_layouts_top_margin</item>
+        <item name="android:layout_marginBottom">@dimen/horizontal_linear_layouts_bottom_margin</item>
+    </style>
+
+
+    <!-- for main vertical linear layouts -->
+    <style name="main_linear_layouts_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <!-- for album/song image-->
+    <style name="album_image_view_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/zero_value</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- for all icons  -->
+    <style name="icon_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <!-- for icons in play current song layout and 1st row in search layout -->
+    <style name="icon_play_current_song_style">
+        <item name="android:layout_width">@dimen/zero_value</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+
+
+
+</resources>

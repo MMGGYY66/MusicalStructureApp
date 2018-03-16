@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- for album images height and width -->
+    <dimen name="album_image_view_width_value">500dp</dimen>
+    <dimen name="album_image_view_height_value">450dp</dimen>
+
+    <!-- left-right margin value for icon play currSongsong -->
+    <dimen name="icon_play_current_song_horizontal_margin">35dp</dimen>
+
+    <!-- for icons width and height-->
+    <dimen name="icon_width">30dp</dimen>
+    <dimen name="icon_height">30dp</dimen>
+
+    <!-- for icons in play current song  horizontal layout only-->
+    <dimen name="icons_play_current_song_width">40dp</dimen>
+    <dimen name="icons_play_current_song_height">40dp</dimen>
+
+    <!-- Song names , list views text -->
+    <dimen name="text_size_text_view">20sp</dimen>
+    <dimen name="text_size_edit_text">20sp</dimen>
+
+    <!-- for search horizontal layout only -->
+    <dimen name="search_layout_height">50sp</dimen>
+
+    <!-- for text size of current song -->
+    <dimen name="text_size_current_song">20sp</dimen>
+
+    <!-- margins values of horizontal layouts -->
+    <dimen name="horizontal_linear_layouts_top_margin">8dp</dimen>
+    <dimen name="horizontal_linear_layouts_bottom_margin">8dp</dimen>
+
+    <!-- margins values for main vertical layouts -->
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+    <dimen name="activity_vertical_margin">8dp</dimen>
+
+    <!-- text size for categories item -->
+    <dimen name="text_size_categories_item">20sp</dimen>
+
+    <!-- values named by it's value to use individually if needed -->
+    <dimen name="zero_value">0dp</dimen>
+    <dimen name="ten_value">10dp</dimen>
+
+
+</resources>
