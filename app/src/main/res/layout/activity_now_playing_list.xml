@@ -3,16 +3,13 @@
 
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/main_linear_layouts_style"
-    tools:context="com.example.tarek.musicalstructureapp.MainActivity">
+    tools:context="com.example.tarek.musicalstructureapp.NowPlayingSongActivity">
 
     <!-- 1st row : contains  list category , category name, search , delete and options buttons-->
-    <LinearLayout style="@style/horizontal_linear_layouts_style">
+    <LinearLayout style="@style/horizontal_linear_layouts_style_landscape">
 
         <!-- icon linked to list category -->
-        <ImageView
-            android:id="@+id/id_back_arrow_icon"
-            style="@style/icon_style"
-            android:src="@drawable/ic_arrow_back_black_48dp" />
+        <include layout="@layout/back_arrow_btn_merge"></include>
 
         <!--  shows current category name  -->
         <TextView
@@ -22,62 +19,18 @@
 
 
         <!-- delete an item-->
-        <ImageView
-            android:id="@+id/id_delete_icon"
-            style="@style/icon_style"
-            android:src="@drawable/ic_delete_black_48dp" />
+        <include layout="@layout/delete_btn_merge"></include>
 
         <!-- more options list-->
-        <ImageView
-            android:id="@+id/id_options_icon"
-            style="@style/icon_style"
-            android:src="@drawable/ic_more_vert_black_48dp" />
-
-
+        <include layout="@layout/options_btn_merge"></include>
     </LinearLayout>
 
 
     <!--list view to show current category-->
-    <ListView
-        android:id="@+id/id_category_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/zero_value"
-        android:layout_weight="10"
-        android:tag="@string/category_list_view_folders"></ListView>
+    <include layout="@layout/list_view_layout_merge"></include>
 
-    <!-- 2nd row : contains song name text view, skip previous , play song and skip next buttons-->
-    <LinearLayout
-        android:id="@+id/id_play_song_linearLayout"
-        style="@style/horizontal_linear_layouts_style">
-
-        <!-- Text view display song name  -->
-        <TextView
-            android:id="@+id/id_song_name_text_view"
-            style="@style/text_style"
-            android:layout_weight="3"
-            android:text="@string/default_song_name" />
-
-
-        <!-- skip and go back to previous song -->
-        <ImageView
-            android:id="@+id/id_skip_previous_icon"
-            style="@style/icon_play_current_song_style"
-            android:src="@drawable/ic_skip_previous_black_48dp" />
-
-        <!-- play/pause button (on/off) -->
-        <ImageView
-            android:id="@+id/id_play_song_icon"
-            style="@style/icon_play_current_song_style"
-            android:src="@drawable/ic_play_arrow_black_48dp" />
-
-        <!-- skip and go forward to next song -->
-        <ImageView
-            android:id="@+id/id_skip_next_icon"
-            style="@style/icon_play_current_song_style"
-            android:src="@drawable/ic_skip_next_black_48dp" />
-
-
-    </LinearLayout>
+    <!-- layout contains song name , skip previous , play song and skip next -->
+    <include layout="@layout/play_song_h_layout"></include>
 
 
 </LinearLayout>

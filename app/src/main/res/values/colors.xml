@@ -10,4 +10,14 @@
     <color name="edit_text_color">@android:color/holo_blue_dark</color>
 
 
+    <!--  for list items texts song and singer/author-->
+    <color name="text1_view_color">#303F9F</color>
+    <color name="text2_view_color">#303F9F</color>
+
+    <!-- navBar color gradient -->
+    <color name="centerColor">#009688</color>
+    <color name="endColor">#00695C</color>
+    <color name="startColor">#4DB6AC</color>
+
+
 </resources>

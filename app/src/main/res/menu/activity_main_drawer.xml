@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_now_playing_list"
+            android:icon="@drawable/ic_queue_music_black_48dp"
+            android:title="@string/item1_categories_list" />
+        <item
+            android:id="@+id/nav_last_played_list"
+            android:icon="@drawable/ic_queue_music_black_48dp"
+            android:title="@string/item2_categories_list" />
+        <item
+            android:id="@+id/nav_favourite_list"
+            android:icon="@drawable/ic_favorite_border_black_48dp"
+            android:title="@string/item3_categories_list" />
+        <item
+            android:id="@+id/nav_my_play_list1"
+            android:icon="@drawable/ic_album_black_48dp"
+            android:title="@string/item4_categories_list" />
+    </group>
+
+
+    <item android:title="@string/options">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/share" />
+            <item
+                android:id="@+id/nav_search"
+                android:icon="@drawable/ic_search_black_48dp"
+                android:title="@string/search" />
+        </menu>
+    </item>
+
+
+</menu>

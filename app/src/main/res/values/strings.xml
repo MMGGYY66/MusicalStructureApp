@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">Musical Structure App</string>
 
+    <!-- label for current song layout -->
+    <string name="current_song_layout_label">current song</string>
+
+    <!-- label for categories layout -->
+    <string name="categories_layout_label">Categories</string>
+
+    <!-- label for now playing list layout -->
+    <string name="now_playing_list_layout_label">now playing list</string>
+
+    <!-- label for search screen list layout -->
+    <string name="search_layout_label">search screen</string>
+
     <!-- default string displayed on edit text view on search layout-->
     <string name="search_hint_text">Search songs name</string>
 
@@ -12,13 +24,40 @@
     <string name="tag2_volume_icon">off</string>
 
     <!-- tag for category list view icon to differ between folders cat or songs cat -->
-    <string name="category_list_view_folders">folders</string>     <!-- default sound on -->
-    <string name="category_list_view_songs">songs</string>
+    <string name="category_list_default_tag">categories</string>     <!-- default sound on -->
+    <string name="category_list_view_show_songs">songs</string>
 
     <!-- default string for song name displayed on text view -->
-    <string name="default_song_name"> last played song </string>
+    <string name="default_song_name">last played song name should appear here</string>
     <!-- default string for category name displayed on text view on categories layout-->
     <string name="default_category_name">Categories</string>
     <!-- default string for category name displayed on text view on categories layout-->
     <string name="default_now_playing_list_name">Now Playing list </string>
+
+    <!-- playlist items -->
+    <string name="item1_categories_list">Now Playing playlist</string>
+    <string name="item2_categories_list">Last played playList</string>
+    <string name="item3_categories_list">Favourite PlayList</string>
+    <string name="item4_categories_list">My PlayList1</string>
+
+    <!-- Album items -->
+    <string name="album1">album1</string>
+    <string name="album2">album2</string>
+    <string name="album3">album3</string>
+    <string name="album4">album4</string>
+
+
+    <string name="options">Options</string>
+    <string name="share">Share</string>
+    <string name="search">Search</string>
+
+    <string name="description_back_arrow_btn">back to categories activity</string>
+    <string name="description_burger_arrow_btn">back to categories activity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

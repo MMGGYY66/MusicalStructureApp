@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- contains song name text view, skip previous , play song and skip next buttons-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_play_song_linearLayout"
+    style="@style/horizontal_linear_layouts_play_song_style">
+
+    <!-- Text view display song name  -->
+    <TextView
+        android:id="@+id/id_song_name_text_view"
+        style="@style/text_style_song_name"
+        android:text="@string/default_song_name" />
+
+    <!-- merge 3 buttons to skip previous , play song and skip next -->
+    <include layout="@layout/play_song_buttons_merge"></include>
+
+
+</LinearLayout>

@@ -4,13 +4,11 @@ package com.example.tarek.musicalstructureapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 
@@ -18,50 +16,53 @@ import java.util.ArrayList;
 public class SearchActivity  extends AppCompatActivity implements View.OnClickListener{
 
 
-    private CategoriesActivity cats;
+    private static final String CURRENT_SONG = "currentSong";
+    private static final String ALBUM = "album";
     private ArrayList<Song> allSongs;
     private SongAdapter songAdapter;
     private ListView searchResultListView;
-    private EditText searchEditText;
+    private SearchView searchEditText;
     private String searchText;
-    private String chooseSongName ;
-
-
+    private ArrayList<Song> resultSearch;
+    private Song currentSong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_screen);
 
-        cats = new CategoriesActivity();
-        allSongs = cats.getAllSongs();
+        setAllViews(); // to initiate all views
 
-        ImageView backButton = (ImageView) findViewById(R.id.id_back_arrow_icon);
-        backButton.setOnClickListener(this);
-        ImageView searchButton = (ImageView) findViewById(R.id.id_search_icon);
-        searchButton.setOnClickListener(this);
+        getIntents(); // to get albums from Categories intent
 
-        searchEditText = (EditText) findViewById(R.id.id_search_edit_text);
-        searchResultListView = (ListView) findViewById(R.id.id_result_search_list_view);
+
         searchResultListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                chooseSongName = allSongs.get(position).getSongName();
-                sendIntentToMainActivity();
-
+                currentSong = resultSearch.get(position);
+                sendIntentToNowPlayingSongActivity();
             }
         });
 
 
-
     }
 
+    public void setAllViews() {
+        ImageView backButton = findViewById(R.id.id_back_arrow_icon);
+        backButton.setOnClickListener(this);
+        ImageView searchButton = findViewById(R.id.id_search_icon);
+        searchButton.setOnClickListener(this);
+
+
+        searchEditText = findViewById(R.id.id_search_edit_text);
+        searchResultListView = findViewById(R.id.id_list_view);
+    }
     @Override
     public void onClick(View v) {
         int id = v.getId();
 
         if (id == R.id.id_back_arrow_icon){
-            Intent categoryActivityIntent = new Intent(SearchActivity.this, MainActivity.class);
+            Intent categoryActivityIntent = new Intent(SearchActivity.this, NowPlayingSongActivity.class);
             startActivity(categoryActivityIntent);
 
             finish(); // to destroy this activity
@@ -74,12 +75,29 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
 
 
     /**
-     * setting intent to MainActivity
+     * setting intent to NowPlayingSongActivity
      */
-    public void sendIntentToMainActivity(){
-        Intent intentToMainActivity = new Intent(SearchActivity.this, MainActivity.class);
-        intentToMainActivity.putExtra("songName",chooseSongName);
-        startActivity(intentToMainActivity);
+    public void sendIntentToNowPlayingSongActivity() {
+        Intent intentToNowPlayingSongActivity = new Intent(SearchActivity.this, NowPlayingSongActivity.class);
+        intentToNowPlayingSongActivity.putExtra(CURRENT_SONG, currentSong);
+        startActivity(intentToNowPlayingSongActivity);
+    }
+
+    /**
+     * to run getIntent() code
+     */
+    public void getIntents() {
+        Intent comingIntents = getIntent();
+        /**
+         * check if there is intent then get it's Extra
+         */
+        if (comingIntents.hasExtra(ALBUM)) {
+            ArrayList<Song> album = (ArrayList<Song>) comingIntents.getSerializableExtra(ALBUM);
+            allSongs = album;
+        } else {
+            // take no action it just for avoid exeptions
+        }
+
     }
 
     /**
@@ -87,7 +105,7 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
      * @return ArrayList contains matched name song
      */
     public ArrayList<Song> resultSearch (ArrayList<Song> songs){
-        ArrayList<Song> resultSearch = new ArrayList<Song>();
+        resultSearch = new ArrayList<>();
         for (int i = 0 ; i< songs.size() ; i++){
             if(songs.get(i).getSongName().toLowerCase().matches(getSearchText()+".*")){
                 resultSearch.add(allSongs.get(i));
@@ -108,7 +126,7 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
      * @return  input text after validating it
      */
     public String getSearchText (){
-        searchText = searchEditText.getText().toString();
+        searchText = searchEditText.getQuery().toString();
         return validateText(searchText);
     }
 
@@ -119,8 +137,8 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
      */
     public String validateText(String text) {
 
-        if (text.length() > 20)
-            text = "not valid";
+        if (text.length() > R.integer.max_text_size)
+            text = text.substring(0, R.integer.max_text_size); // return 1-20th letters only
 
         return text;
     }

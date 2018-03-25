@@ -2,11 +2,9 @@
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/text1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="@dimen/text_size_categories_item"
-    android:textAppearance="?android:attr/textAppearanceListItem"
-    android:gravity="center_vertical"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"/>
+    style="@style/text1_list_view_style"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+    android:textAppearance="?android:attr/textAppearanceListItem" />
 
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- skip and go back to previous song -->
+    <ImageView
+        android:id="@+id/id_skip_previous_icon"
+        style="@style/icon_play_current_song_style"
+        android:src="@drawable/ic_skip_previous_black_48dp" />
+
+    <!-- play/pause button (on/off) -->
+    <ImageView
+        android:id="@+id/id_play_song_icon"
+        style="@style/icon_play_song_style"
+        android:src="@drawable/ic_play_arrow_black_48dp" />
+
+    <!-- skip and go forward to next song -->
+    <ImageView
+        android:id="@+id/id_skip_next_icon"
+        style="@style/icon_play_current_song_style"
+        android:src="@drawable/ic_skip_next_black_48dp" />
+
+</merge>

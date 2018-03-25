@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- 3rd row contains shuffle , seekbar and repeat buttons -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/horizontal_linear_layouts_seek_bar_style">
+
+    <!-- shuffle songs (on/off) -->
+    <ImageView
+        android:id="@+id/id_shuffle_icon"
+        style="@style/icon_style"
+        android:src="@drawable/ic_shuffle_black_48dp" />
+
+    <!-- to show progress -->
+    <SeekBar
+        android:id="@+id/id_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="2" />
+    <!-- repeat song (on/off) -->
+    <ImageView
+        android:id="@+id/id_repeat_icon"
+        style="@style/icon_style"
+        android:src="@drawable/ic_repeat_black_48dp" />
+
+</LinearLayout>
+

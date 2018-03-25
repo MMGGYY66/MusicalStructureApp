@@ -32,30 +32,30 @@ public class NowPlayingListActivity extends AppCompatActivity implements View.On
         playingList = cats.getAllSongs(); // as placeholder data
 
         // initiate all views and set their onClickListener
-        ImageView backButton = (ImageView) findViewById(R.id.id_back_arrow_icon);
+        ImageView backButton = findViewById(R.id.id_back_arrow_icon);
         backButton.setOnClickListener(this);
 
-        ImageView deleteButton = (ImageView) findViewById(R.id.id_delete_icon);
+        ImageView deleteButton = findViewById(R.id.id_delete_icon);
         deleteButton.setOnClickListener(this);
 
-        ImageView optionsButton = (ImageView) findViewById(R.id.id_options_icon);
+        ImageView optionsButton = findViewById(R.id.id_options_icon);
         optionsButton.setOnClickListener(this);
 
-        ImageView skipPreivButton = (ImageView) findViewById(R.id.id_skip_previous_icon);
+        ImageView skipPreivButton = findViewById(R.id.id_skip_previous_icon);
         skipPreivButton.setOnClickListener(this);
 
-        ImageView playSongButton = (ImageView) findViewById(R.id.id_play_song_icon);
+        ImageView playSongButton = findViewById(R.id.id_play_song_icon);
         playSongButton.setOnClickListener(this);
 
-        ImageView skipNextButton = (ImageView) findViewById(R.id.id_skip_next_icon);
+        ImageView skipNextButton = findViewById(R.id.id_skip_next_icon);
         skipNextButton.setOnClickListener(this);
 
-        LinearLayout playSongLinearLayout = (LinearLayout) findViewById(R.id.id_play_song_linearLayout);
+        LinearLayout playSongLinearLayout = findViewById(R.id.id_play_song_linearLayout);
         playSongLinearLayout.setOnClickListener(this);
 
 
         // initiating list view
-        nowPlayingListView = (ListView) findViewById(R.id.id_category_list_view);
+        nowPlayingListView = findViewById(R.id.id_list_view);
 
         songAdapterCat = new SongAdapter(this , playingList);
 
@@ -98,10 +98,10 @@ public class NowPlayingListActivity extends AppCompatActivity implements View.On
 
 
     /**
-     * setting intent to MainActivity
+     * setting intent to NowPlayingSongActivity
      */
     public void sendIntentToMainActivity(){
-        Intent intentToMainActivity = new Intent(NowPlayingListActivity.this, MainActivity.class);
+        Intent intentToMainActivity = new Intent(NowPlayingListActivity.this, NowPlayingSongActivity.class);
         intentToMainActivity.putExtra("songName",currentSongName);
         startActivity(intentToMainActivity);
     }

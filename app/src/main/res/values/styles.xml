@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -12,23 +12,30 @@
     <!-- song names , category name -->
     <style name="text_style">
         <item name="android:layout_width">@dimen/zero_value</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">8</item>
         <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/ten_value</item>
         <item name="android:textSize">@dimen/text_size_text_view</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_view_color</item>
     </style>
 
-    <!-- list views text style -->
-    <style name="text_list_view_style">
+    <!-- list views text1 style for song name  -->
+    <style name="text1_list_view_style" parent="text2_list_view_style">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text1_size_text_view</item>
+        <item name="android:textColor">@color/text1_view_color</item>
+    </style>
+    <!-- list views text2 style for singer/author name -->
+    <style name="text2_list_view_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:textSize">@dimen/text_size_text_view</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/text_view_color</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/text2_size_text_view</item>
+        <item name="android:textColor">@color/text2_view_color</item>
     </style>
+
     <!-- for images in list view -->
     <style name="image_view_style">
         <item name="android:layout_width">@dimen/zero_value</item>
@@ -56,19 +63,39 @@
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_marginTop">@dimen/horizontal_linear_layouts_top_margin</item>
-        <item name="android:layout_marginBottom">@dimen/horizontal_linear_layouts_bottom_margin</item>
+        <item name="android:layout_marginBottom">@dimen/horizontal_linear_layouts_bottom_margin
+        </item>
+    </style>
+
+    <!--  for seekbar layout-->
+    <style name="horizontal_linear_layouts_seek_bar_style" parent="horizontal_linear_layouts_style">
+        <item name="android:layout_marginLeft">
+            @dimen/seekbar_horizontal_linear_layouts_right_margin
+        </item>
+        <item name="android:layout_marginRight">
+            @dimen/seekbar_horizontal_linear_layouts_right_margin
+        </item>
+    </style>
+    <!--  for playSong layout-->
+    <style name="horizontal_linear_layouts_play_song_style" parent="horizontal_linear_layouts_style">
+        <item name="android:layout_marginLeft">
+            @dimen/play_song_horizontal_linear_layouts_left_margin
+        </item>
+        <item name="android:layout_marginRight">
+            @dimen/play_song_horizontal_linear_layouts_right_margin
+        </item>
     </style>
 
 
     <!-- for main vertical linear layouts -->
     <style name="main_linear_layouts_style">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
-        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
-        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
-        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_layout_margin</item>
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_layout_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_layout_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_layout_margin</item>
     </style>
 
     <!-- for album/song image-->
@@ -81,22 +108,101 @@
 
     <!-- for all icons  -->
     <style name="icon_style">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:scaleType">centerCrop</item>
-        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">@dimen/icon_width</item>
+        <item name="android:layout_height">@dimen/icon_height</item>
     </style>
 
     <!-- for icons in play current song layout and 1st row in search layout -->
     <style name="icon_play_current_song_style">
         <item name="android:layout_width">@dimen/zero_value</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:scaleType">centerCrop</item>
         <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_height">@dimen/icon_height</item>
+    </style>
+
+    <!-- for icons in play current song layout and 1st row in search layout -->
+    <style name="icon_play_song_style">
+        <item name="android:layout_width">@dimen/play_song_button_width</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_height">@dimen/play_song_button_height</item>
+    </style>
+
+    <!-- song names , category name -->
+    <style name="text_style_song_name" parent="text_style">
+        <item name="android:layout_weight">6</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
 
+    <!-- LANDSCAPE -->
 
+    <!-- for icons in play current song layout and 1st row in search layout -->
+    <style name="icon_play_song_style_landscape">
+        <item name="android:layout_width">@dimen/play_song_button_width_landscape</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_height">@dimen/play_song_button_height_landscape</item>
+    </style>
+
+    <!--  for seekbar layout-->
+    <style name="horizontal_linear_layouts_seek_bar_style_landscape" parent="horizontal_linear_layouts_style">
+        <item name="android:layout_marginLeft">
+            @dimen/seekbar_horizontal_linear_layouts_right_margin_landscape
+        </item>
+        <item name="android:layout_marginRight">
+            @dimen/seekbar_horizontal_linear_layouts_right_margin_landscape
+        </item>
+    </style>
+    <!--  for playSong layout-->
+    <style name="horizontal_linear_layouts_play_song_style_landscape" parent="horizontal_linear_layouts_style">
+        <item name="android:layout_marginLeft">
+            @dimen/play_song_horizontal_linear_layouts_left_margin_landscape
+        </item>
+        <item name="android:layout_marginRight">
+            @dimen/play_song_horizontal_linear_layouts_right_margin_landscape
+        </item>
+        <item name="android:layout_weight">2</item>
+    </style>
+
+
+    <!-- for horizontal layouts contains icons in each activity-->
+    <style name="horizontal_linear_layouts_style_landscape">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/zero_value</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">
+            @dimen/horizontal_linear_layouts_left_margin_landscape
+        </item>
+        <item name="android:layout_marginRight">
+            @dimen/horizontal_linear_layouts_right_margin_landscape
+        </item>
+    </style>
+
+    <!-- for main vertical linear layouts -->
+    <style name="main_linear_layouts_style_landscape">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin_landscape</item>
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin_landscape</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin_landscape</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin_landscape</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

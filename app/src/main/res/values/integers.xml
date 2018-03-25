@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="max_text_size">10</integer>
+
+    <!--  navBar color gradient angel -->
+    <integer name="angel">135</integer>
+</resources>

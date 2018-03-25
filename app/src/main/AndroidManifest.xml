@@ -9,41 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
+        <activity android:name=".CategoriesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".SearchActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.example.tarek.musicalstructureapp.SearchActivity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+        <activity android:name=".NowPlayingSongActivity">
+        </activity>
+        <activity android:name=".NowPlayingListActivity">
+        </activity>
+        <activity android:name=".SearchActivity">
         </activity>
 
-        <activity android:name=".CategoriesActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.example.tarek.musicalstructureapp.CategoriesActivity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".NowPlayingListActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.example.tarek.musicalstructureapp.NowPlayingListActivity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

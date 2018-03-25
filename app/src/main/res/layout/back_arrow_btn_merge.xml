@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- go back icon -->
+    <ImageView
+        android:id="@+id/id_back_arrow_icon"
+        style="@style/icon_style"
+        android:contentDescription="@string/description_back_arrow_btn"
+        android:src="@drawable/ic_arrow_back_black_48dp" />
+</merge>

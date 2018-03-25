@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--  to search for songs  -->
+    <SearchView
+        android:id="@+id/id_search_edit_text"
+        android:layout_width="@dimen/zero_value"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
+        android:queryHint="@string/search_hint_text" />
+
+</merge>
