@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/main_linear_layouts_style_landscape">
+
+
+    <!-- 1st row contains back , list and search buttons -->
+    <LinearLayout style="@style/horizontal_linear_layouts_style_landscape">
+
+        <!-- arrow back linked to main activity -->
+        <include layout="@layout/back_arrow_btn_merge"></include>
+
+        <!--  view to give more horizontal space between icons   -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:paddingLeft="@dimen/ten_value" />
+
+        <!-- now playing list -->
+        <ImageView
+            android:id="@+id/id_now_playing_list_icon"
+            style="@style/icon_style"
+            android:src="@drawable/ic_queue_music_black_48dp" />
+
+        <!-- search icon linked to search activity-->
+        <include layout="@layout/search_btn_merge"></include>
+
+        <!-- more options list-->
+        <include layout="@layout/options_btn_merge"></include>
+
+
+    </LinearLayout>
+
+    <!-- 2nd row contains favourited  button ,song name text view -->
+    <LinearLayout
+        style="@style/horizontal_linear_layouts_style"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center">
+
+        <!-- favourite icon (on/off) -->
+        <ImageView
+            android:id="@+id/id_favourite_icon"
+            style="@style/icon_style"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_favorite_border_black_48dp"
+            android:tag="@string/tag1_favourite_icon" />
+
+        <!-- Text view display song name  -->
+        <TextView
+            android:id="@+id/id_song_name_text_view"
+            style="@style/text_style_song_name"
+            android:layout_width="@dimen/album_image_width_landscape"
+            android:text="@string/default_song_name" />
+
+    </LinearLayout>
+
+    <!-- album/song image -->
+    <ImageView
+        android:id="@+id/id_image_song"
+        style="@style/album_image_view_style"
+        android:layout_width="@dimen/album_image_width_landscape"
+        android:layout_weight="3"
+        android:paddingBottom="@dimen/activity_vertical_layout_margin"
+        android:paddingTop="@dimen/activity_vertical_layout_margin" />
+
+    <!-- 3rd row contains shuffle , seekbar and repeat buttons -->
+    <include
+        style="@style/horizontal_linear_layouts_seek_bar_style_landscape"
+        layout="@layout/seekbar_layout"></include>
+
+    <!-- 4th row contains volume , skip previous , play song , skip next and list buttons -->
+    <LinearLayout style="@style/horizontal_linear_layouts_play_song_style_landscape">
+
+        <!-- icon volume(on/off) -->
+        <ImageView
+            android:id="@+id/id_volume_icon"
+            style="@style/icon_play_current_song_style"
+            android:src="@drawable/ic_volume_up_black_48dp"
+            android:tag="@string/tag1_volume_icon" />
+
+        <include layout="@layout/play_song_buttons_merge"></include>
+
+        <!-- go to songs list -->
+        <ImageView
+            android:id="@+id/id_categories_list_icon"
+            style="@style/icon_play_current_song_style"
+            android:contentDescription="@string/description_burger_arrow_btn"
+            android:src="@drawable/ic_view_headline_black_48dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

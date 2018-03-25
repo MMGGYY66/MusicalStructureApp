@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/main_linear_layouts_style_landscape"
+    tools:context="com.example.tarek.musicalstructureapp.NowPlayingSongActivity">
+
+
+    <!--list view to show current category-->
+    <include layout="@layout/list_view_layout_merge"></include>
+
+    <!-- layout contains song name , skip previous , play song and skip next -->
+    <include
+        android:id="@+id/id_play_song_linearLayout"
+        style="@style/horizontal_linear_layouts_play_song_style_landscape"
+        layout="@layout/play_song_h_layout"></include>
+
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+
+    style="@style/main_linear_layouts_style_landscape">
+
+    <!--Horizontal L-layout contains back arrow and edit text to write keywords  -->
+    <LinearLayout style="@style/horizontal_linear_layouts_style">
+
+        <!-- go back icon -->
+        <include layout="@layout/back_arrow_btn_merge"></include>
+
+        <!-- EditText to search for songs  -->
+        <include layout="@layout/search_view_merge"></include>
+
+        <!-- search icon linked to search activity-->
+        <include layout="@layout/search_btn_merge"></include>
+
+    </LinearLayout>
+
+    <!--list view to show search result -->
+    <include layout="@layout/list_view_layout_merge"></include>
+
+
+</LinearLayout>
