@@ -3,7 +3,6 @@ package com.example.tarek.musicalstructureapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -27,7 +26,7 @@ public class NowPlayingSongActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_song);
 
-        setAllViews();
+        setAllViews(); // to set all views
 
         getIntents(); // run get intent code
     }
@@ -37,6 +36,7 @@ public class NowPlayingSongActivity extends AppCompatActivity implements View.On
         int id = v.getId();
 
         if (id == R.id.id_back_arrow_icon) {
+            Toast.makeText(getBaseContext(), "back to albums", Toast.LENGTH_SHORT).show();
             sendIntentToCategoryActivity();
         } else if (id == R.id.id_now_playing_list_icon) {
             sendIntentToNowPlayingListActivity();
@@ -76,6 +76,7 @@ public class NowPlayingSongActivity extends AppCompatActivity implements View.On
         } else if (id == R.id.id_skip_next_icon) {
             Toast.makeText(getBaseContext(), "skip next", Toast.LENGTH_LONG).show();
         } else if (id == R.id.id_categories_list_icon) {
+            Toast.makeText(getBaseContext(), "back to albums", Toast.LENGTH_SHORT).show();
             sendIntentToCategoryActivity();
         }
 
@@ -149,10 +150,16 @@ public class NowPlayingSongActivity extends AppCompatActivity implements View.On
     }
 
     /**
-     * setting Intent to Now playing list Activity
+     * setting Intent to Now playing list Activity carrying album
      */
     public void sendIntentToNowPlayingListActivity() {
         Intent intentToNowPlayingListActivity = new Intent(NowPlayingSongActivity.this, NowPlayingListActivity.class);
+        if (getIntent().getSerializableExtra(ALBUM) != null) {
+            ArrayList<Song> album = (ArrayList<Song>) getIntent().getSerializableExtra(ALBUM);
+            intentToNowPlayingListActivity.putExtra(ALBUM, album);
+        } else {
+            // do something
+        }
         startActivity(intentToNowPlayingListActivity);
     }
 
@@ -172,7 +179,6 @@ public class NowPlayingSongActivity extends AppCompatActivity implements View.On
         Intent intentToSearchActivity = new Intent(NowPlayingSongActivity.this, SearchActivity.class);
         if (getIntent().getSerializableExtra(ALBUM) != null) {
             ArrayList<Song> album = (ArrayList<Song>) getIntent().getSerializableExtra(ALBUM);
-            Log.v("songs", album.toString());
             intentToSearchActivity.putExtra(ALBUM, album);
         } else {
             // do something
