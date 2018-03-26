@@ -9,11 +9,12 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
-public class SearchActivity  extends AppCompatActivity implements View.OnClickListener{
+public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     private static final String CURRENT_SONG = "currentSong";
@@ -32,7 +33,6 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_search_screen);
 
         setAllViews(); // to initiate all views
-
         getIntents(); // to get albums from Categories intent
 
 
@@ -57,17 +57,19 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
         searchEditText = findViewById(R.id.id_search_edit_text);
         searchResultListView = findViewById(R.id.id_list_view);
     }
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
 
-        if (id == R.id.id_back_arrow_icon){
+        if (id == R.id.id_back_arrow_icon) {
             Intent categoryActivityIntent = new Intent(SearchActivity.this, NowPlayingSongActivity.class);
             startActivity(categoryActivityIntent);
 
             finish(); // to destroy this activity
-        }else if (id == R.id.id_search_icon) {
-            songAdapter = new SongAdapter(this , resultSearch(allSongs) );
+        } else if (id == R.id.id_search_icon) {
+            resultSearch(); // to run search
+            songAdapter = new SongAdapter(this, resultSearch);
             searchResultListView.setAdapter(songAdapter);
         }
 
@@ -79,7 +81,14 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
      */
     public void sendIntentToNowPlayingSongActivity() {
         Intent intentToNowPlayingSongActivity = new Intent(SearchActivity.this, NowPlayingSongActivity.class);
-        intentToNowPlayingSongActivity.putExtra(CURRENT_SONG, currentSong);
+        if (currentSong != null) {
+            intentToNowPlayingSongActivity.putExtra(CURRENT_SONG, currentSong);
+        }
+        if (allSongs != null) {
+            // resend all songs again to NowPlayingSongActivity to be available to sharing again
+            // because if this if not sent again it will not work !
+            intentToNowPlayingSongActivity.putExtra(ALBUM, allSongs);
+        }
         startActivity(intentToNowPlayingSongActivity);
     }
 
@@ -92,8 +101,7 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
          * check if there is intent then get it's Extra
          */
         if (comingIntents.hasExtra(ALBUM)) {
-            ArrayList<Song> album = (ArrayList<Song>) comingIntents.getSerializableExtra(ALBUM);
-            allSongs = album;
+            allSongs = (ArrayList<Song>) comingIntents.getSerializableExtra(ALBUM);
         } else {
             // take no action it just for avoid exeptions
         }
@@ -102,36 +110,43 @@ public class SearchActivity  extends AppCompatActivity implements View.OnClickLi
 
     /**
      * to search for songs matched input user text
-     * @return ArrayList contains matched name song
      */
-    public ArrayList<Song> resultSearch (ArrayList<Song> songs){
+    public void resultSearch() {
         resultSearch = new ArrayList<>();
-        for (int i = 0 ; i< songs.size() ; i++){
-            if(songs.get(i).getSongName().toLowerCase().matches(getSearchText()+".*")){
-                resultSearch.add(allSongs.get(i));
+        if (allSongs != null) {
+            for (int i = 0; i < allSongs.size(); i++) {
+                if (allSongs.get(i).getSongName().toLowerCase().matches(getSearchText() + ".*")) {
+                    resultSearch.add(allSongs.get(i));
+                }
             }
+        } else {
+            // intent coming from NowPlayingSong works only if the user go from Categories to Now Playing Song
+            // but if he search then return to NowPlayingSong then want to search again it makes error
+            // because there is no intent carrying album to search in it.
+            Toast.makeText(getBaseContext(), "No songs , intent works just once", Toast.LENGTH_SHORT).show();
         }
-        return resultSearch;
     }
 
     /**
      * to finish the app when back btn pressed
      */
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
     }
 
     /**
      * to get input text from user
-     * @return  input text after validating it
+     *
+     * @return input text after validating it
      */
-    public String getSearchText (){
+    public String getSearchText() {
         searchText = searchEditText.getQuery().toString();
         return validateText(searchText);
     }
 
     /**
      * to check the input text by some conditions
+     *
      * @param text
      * @return validated text
      */

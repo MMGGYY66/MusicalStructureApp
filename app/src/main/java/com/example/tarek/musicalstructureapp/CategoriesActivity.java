@@ -61,7 +61,7 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
                 // tag to avoid interface code running as it is one listview with one OnItemClickListener
                 if (tagListView.equals(getString(R.string.category_list_default_tag))) {
                     categoryListView.setTag(getString(R.string.category_list_view_show_songs));
-                    getSupportActionBar().setTitle(categoriesList.get(position));
+                    getSupportActionBar().setTitle(categoriesList.get(position)); // set title for activity changes depend on category name
                     if (position == 0) {
                         setSongAdapterCat((allSongs));
                     } else if (position == 1) {
@@ -200,10 +200,6 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
         for (int i = 0; i < songsNames.length; i++) {
             allSongs.add(new Song(songsNames[i], authorsNames[i], R.drawable.luke_chesser_50_unsplash));
         }
-    }
-
-    public ArrayList<Song> getAllSongs() {
-        return allSongs;
     }
 
     public SongAdapter getSongAdapterCat() {

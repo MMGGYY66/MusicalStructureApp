@@ -16,11 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NowPlayingSongActivity">
+        <activity
+            android:name=".NowPlayingSongActivity"
+            android:label="@string/activity_now_playing_song_label">
         </activity>
-        <activity android:name=".NowPlayingListActivity">
+        <activity
+            android:name=".NowPlayingListActivity"
+            android:label="@string/now_playing_list_layout_label">
         </activity>
-        <activity android:name=".SearchActivity">
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/search_layout_label">
         </activity>
 
     </application>

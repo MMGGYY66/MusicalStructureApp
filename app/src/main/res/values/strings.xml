@@ -46,6 +46,10 @@
     <string name="album3">album3</string>
     <string name="album4">album4</string>
 
+    <string name="activity_now_playing_list_label">Now Playing playlist</string>
+    <string name="activity_now_playing_song_label">Now Playing song</string>
+    <string name="activity_search_label">Search</string>
+
 
     <string name="options">Options</string>
     <string name="share">Share</string>

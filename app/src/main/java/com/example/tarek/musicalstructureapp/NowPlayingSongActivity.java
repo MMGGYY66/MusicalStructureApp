@@ -27,7 +27,6 @@ public class NowPlayingSongActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_current_song);
 
         setAllViews(); // to set all views
-
         getIntents(); // run get intent code
     }
 

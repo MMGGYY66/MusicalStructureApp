@@ -32,10 +32,15 @@ public class NowPlayingListActivity extends AppCompatActivity implements View.On
         setAllViews(); // set all views
         getIntents(); // to get intents
 
-        songAdapterCat = new SongAdapter(this, playingList);
-
-        nowPlayingListView.setAdapter(songAdapterCat);
-
+        if (playingList != null) {
+            songAdapterCat = new SongAdapter(this, playingList);
+            nowPlayingListView.setAdapter(songAdapterCat);
+        } else {
+            // intent coming from NowPlayingSong works only if the user go from Categories to Now Playing Song
+            // but if he search then return to NowPlayingSong then want to search again it makes error
+            // because there is no intent carrying album to search in it.
+            Toast.makeText(getBaseContext(), "No songs , intent works just once", Toast.LENGTH_SHORT).show();
+        }
         // when any item clicked , get it's name and send it in an intent to main activity
         nowPlayingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -122,7 +127,16 @@ public class NowPlayingListActivity extends AppCompatActivity implements View.On
      */
     public void sendIntentToNowPlayingSongActivity() {
         Intent intentToNowPlayingSongActivity = new Intent(NowPlayingListActivity.this, NowPlayingSongActivity.class);
-        intentToNowPlayingSongActivity.putExtra(CURRENT_SONG, currentSong);
+        if (currentSong != null) {
+            // because user may click on play_song_layout , so there is will be no songs sent to now playing song
+            // so ti will not be sharable songs and it will be error
+            intentToNowPlayingSongActivity.putExtra(CURRENT_SONG, currentSong);
+        }
+        if (playingList != null) {
+            // resend all songs again to NowPlayingSongActivity to be available to sharing again
+            // because if this if not sent again it will not work !
+            intentToNowPlayingSongActivity.putExtra(CURRENT_PLAYLIST, playingList);
+        }
         startActivity(intentToNowPlayingSongActivity);
     }
 
